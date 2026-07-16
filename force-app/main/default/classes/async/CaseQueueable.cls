@@ -28,6 +28,6 @@ public with sharing class CaseQueueable {
             psr.IsReadyForRouting = true;
             psrToInsert.add(psr);
         }
-        insert psr;
+        insert psrToInsert;
     }
 }
