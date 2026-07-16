@@ -1,10 +1,12 @@
 public class CaseBatchApex implements Database.Batchable<sObject> {
 
-    public (Database.QueryLocator | Iterable<sObject>) start(Database.BatchableContext bc) {
+    public Database.QueryLocator start(Database.BatchableContext bc) {
         // Coletar registros para processamento
         return Database.getQueryLocator(
-            SELECT Id, OwnerId, IsEscalated, Status FROM Case WHERE Priority = 'High' AND 
-            CreatedDate = LAST_N_DAYS:2 AND Status != 'Closed'
+                [SELECT Id, OwnerId, IsEscalated, Status 
+                FROM Case 
+                WHERE Priority = 'High' AND 
+                CreatedDate = LAST_N_DAYS:2 AND Status != 'Closed']
             );
     }
     
