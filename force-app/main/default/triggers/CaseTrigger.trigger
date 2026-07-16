@@ -1,3 +1,3 @@
-trigger CaseTrigger on Case (afte insert) {
+trigger CaseTrigger on Case (after insert) {
     CaseTriggerHandler.run(Trigger.new, Trigger.operationType);
 }
