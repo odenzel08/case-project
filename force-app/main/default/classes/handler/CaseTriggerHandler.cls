@@ -1,6 +1,6 @@
 public with sharing class CaseTriggerHandler {
     public static void run (List<Case> newCases, TriggerOperation op){
-        if (op == TriggerOperation.AFTER INSERT){
+        if (op == TriggerOperation.AFTER_INSERT){
             validateCase(newCases);
         }
     }
