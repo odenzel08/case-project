@@ -14,7 +14,7 @@ public with sharing class CaseTriggerHandler {
                 withoutOwner.add(cs);
             }
 
-            System.enqueuejob(withoutOwner);
+            System.enqueuejob(new CaseQueueable(withoutOwner));
         }
     }
 }
